@@ -23,7 +23,7 @@ def parse_args():
                     help="for processing small plaques", action = "store_true")
     ap.add_argument("-debug", "--debug", required=False, action = "store_true")
     args = vars(ap.parse_args())
-    if 'image' not in args and 'directory' not in args:
+    if args['image'] ==  None and args['directory'] == None:
         raise Exception('Either -i or -d flags must be provided!')
     return args
 
@@ -144,8 +144,12 @@ def draw_one_contour(image, c_df, color):
     # cv2.putText(image, f"#{c_df['INDEX_COL']}:{c_df['ENCL_DIAMETER_MM']}", (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
     #             color, 1)
 
-    cv2.putText(image, f"#{c_df['INDEX_COL']}:{c_df['DIAMETER_MM']}", (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                (25,51,0), 1)
+    if c_df['DIAMETER_MM'] == 0:
+        cv2.putText(image, f"#{c_df['INDEX_COL']}:{c_df['DIAMETER_PXL']}", (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                    (25, 51, 0), 1)
+    else:
+        cv2.putText(image, f"#{c_df['INDEX_COL']}:{c_df['DIAMETER_MM']}", (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                    (25,51,0), 1)
     return image_w_contours
 
 
@@ -178,7 +182,7 @@ def write_one_data(out_dir, image_path, prefix, df):
     image_file_name = os.path.split(image_path)[1]
     image_name = os.path.splitext(image_file_name)[0]
     df.to_csv(path_or_buf=f'{out_dir}/data-{prefix}-{image_name}.csv',
-              columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'ENCL_CENTER', 'ENCL_DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM','MEAN_COLOUR'])
+              columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM'])
               #columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'ENCL_CENTER', 'ENCL_DIAMETER_PXL'])
 
 
@@ -332,11 +336,12 @@ def calculate_size_mm(plate_size, obj_df, plate_df):
                                                         axis=1)
         obj_df['DIAMETER_MM'] = obj_df.apply(lambda x: f"{np.sqrt(float(x['AREA_MM2'])/np.pi)*2:.2f}",
                                                                 axis=1)
-
     else:
         obj_df['ENCL_DIAMETER_MM'] = 0
         obj_df['AREA_MM2'] = 0
         obj_df['DIAMETER_MM'] = 0
+        obj_df['DIAMETER_PXL'] = obj_df.apply(lambda x: f"{np.sqrt(float(x['AREA_PXL'])/np.pi)*2:.2f}",
+                                                                axis=1)
 
     return obj_df
 

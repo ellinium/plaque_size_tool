@@ -1,7 +1,6 @@
 # Bacteriophage plaques size tool
 This tool takes Petri dish images as input and measures the sizes of the bacteriophage round and oval-shaped plaques.
 
-To run the tool, follow the steps below:
 ## Prerequisites
 Python 3.6 or higher must be installed in the system
 ## Install dependencies
@@ -9,11 +8,13 @@ Run following command in the root of the project:
 ```
 pip install -r requirements.txt
 ``` 
-## Run the tool
-To run the tool, use one of the following options. Output will be placed into `./out` directory of the project
 ## Usage
 
 The tool supports TIF, TIFF, JPG, JPEG and PNG image formats.
+
+## Run the tool
+To run the tool, use one of the following options. Output will be placed into `./out` directory of the project
+
 ### on a file
 If it's required to analyze a single file, run the following command:
 ```
