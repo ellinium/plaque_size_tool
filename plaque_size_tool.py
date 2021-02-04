@@ -44,7 +44,7 @@ def adjust_gamma(image, gamma=1.0):
 
 def process_image(image, contrast):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite("./test_pic_grey.jpg", gray)
+    debug_info("./test_pic_grey.jpg", gray)
 
     # different values for different plaque sizes
     h = 6
