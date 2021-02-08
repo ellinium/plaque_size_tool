@@ -1,8 +1,26 @@
 # Bacteriophage plaques size tool
-This tool takes Petri dish images as input and measures the sizes of the bacteriophage round and oval-shaped plaques.
+This tool that is written in Python 3 takes Petri dish images as input and measures the sizes of the bacteriophage round and oval-shaped plaques.
+
+#Installation
+
+There are two options to install the tool:
+##1) Installation using pip 
+The following command should be exectuted:
+```
+pip install plaque-size-tool
+```
 
 ## Prerequisites
-Python 3.6 or higher must be installed in the system
+1.  Python 3.6 or higher should be installed in the system:
+
+    For Python 3 installation, please navigate to https://www.python.org/downloads/.
+    The detailed instructions for download and installation are provided at  https://wiki.python.org/moin/BeginnersGuide/Download.
+
+2. PIP should be installed in the system:
+
+    pip should be already installed if you are using Python 2 >=2.7.9 or Python 3 >=3.4 downloaded from python.org.
+    If it is not installed, please navigate to https://pip.pypa.io/en/stable/installing/ for the instructions.
+
 ## Install dependencies
 Run following command in the root of the project:
 ```
