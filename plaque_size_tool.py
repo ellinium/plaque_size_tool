@@ -125,8 +125,8 @@ def draw_contours(image, green_df, red_df, other_df, plate_df):
     #for index, other in other_df.iterrows():
         #draw_one_contour(image_copy, other, (200, 150, 150))
         #draw_one_contour(image_copy, other, (100, 100, 100))
-    for index, plate in plate_df.iterrows():
-        draw_one_contour(image_copy, plate, (0, 128, 255))
+    #for index, plate in plate_df.iterrows():
+        #draw_one_contour(image_copy, plate, (0, 128, 255))
     return image_copy
 
 
@@ -327,6 +327,10 @@ def check_duplicate_plates(obj_df):
     return obj_df
 
 def calculate_size_mm(plate_size, obj_df, plate_df):
+
+    if obj_df.size > 0:
+        obj_df['DIAMETER_PXL'] = obj_df.apply(lambda x: f"{np.sqrt(float(x['AREA_PXL'])/np.pi)*2:.2f}",
+                                                                axis=1)
     if plate_size and obj_df.size > 0:
         max_plate_diameter = plate_df['ENCL_DIAMETER_PXL'].max()
         pxl_per_mm = float(plate_size) / float(max_plate_diameter)
@@ -340,8 +344,6 @@ def calculate_size_mm(plate_size, obj_df, plate_df):
         obj_df['ENCL_DIAMETER_MM'] = 0
         obj_df['AREA_MM2'] = 0
         obj_df['DIAMETER_MM'] = 0
-        obj_df['DIAMETER_PXL'] = obj_df.apply(lambda x: f"{np.sqrt(float(x['AREA_PXL'])/np.pi)*2:.2f}",
-                                                                axis=1)
 
     return obj_df
 
