@@ -168,8 +168,8 @@ def get_image_paths(image, directory):
 def write_images(out_dir, output_image, binary_image, high_contrast_image, image_path):
     cv2.imwrite(f'{out_dir}/out_{os.path.split(image_path)[1]}', output_image)
     # cv2.imwrite(f'{out_dir}/out_red-{os.path.split(image_path)[1]}', output_image_red)
-    cv2.imwrite(f'{out_dir}/contrast-{os.path.split(image_path)[1]}', high_contrast_image)
-    cv2.imwrite(f'{out_dir}/binary-{os.path.split(image_path)[1]}', binary_image)
+    #cv2.imwrite(f'{out_dir}/contrast-{os.path.split(image_path)[1]}', high_contrast_image)
+    #cv2.imwrite(f'{out_dir}/binary-{os.path.split(image_path)[1]}', binary_image)
 
 
 def write_data(out_dir, image_path, green_df, red_df, other_df):

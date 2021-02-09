@@ -1,13 +1,18 @@
 # Bacteriophage plaques size tool
-This tool that is written in Python 3 takes Petri dish images as input and measures the sizes of the bacteriophage round and oval-shaped plaques.
+This Python 3 tool takes Petri dish images as input and measures the sizes of the bacteriophage round and oval-shaped plaques.
 
-#Installation
+# Installation
 
-There are two options to install the tool:
-##1) Installation using pip 
-The following command should be exectuted:
+## Installation using pip 
+The following command should be executed:
 ```
 pip install plaque-size-tool
+```
+
+## Upgrade using pip 
+Upgrade an already installed package to the latest from PyPI:
+```
+pip install --upgrade plaque-size-tool
 ```
 
 ## Prerequisites
@@ -18,20 +23,19 @@ pip install plaque-size-tool
 
 2. PIP should be installed in the system:
 
-    pip should be already installed if you are using Python 2 >=2.7.9 or Python 3 >=3.4 downloaded from python.org.
+    pip is already installed if you are using Python 2 >=2.7.9 or Python 3 >=3.4 downloaded from python.org.
     If it is not installed, please navigate to https://pip.pypa.io/en/stable/installing/ for the instructions.
 
-## Install dependencies
-Run following command in the root of the project:
-```
-pip install -r requirements.txt
-``` 
-## Usage
+
+By default the tool will be installed into the directories depending on the OS:
+
+Please see https://docs.python.org/3/install/ for the details.
+# Usage
 
 The tool supports TIF, TIFF, JPG, JPEG and PNG image formats.
 
 ## Run the tool
-To run the tool, use one of the following options. Output will be placed into `./out` directory of the project
+To run the tool, use one of the following options. The output will be placed into `./out` directory of the project.
 
 ### on a file
 If it's required to analyze a single file, run the following command:
@@ -45,16 +49,21 @@ python plaque_size_tool.py -d <path_to_the_directory> [-p plate_size] [-small]
 ```
 ## Additional options
 ```
--p plate_size - (Optional) Petri dish size (mm)
+-p plate_size - (Optional) Petri dish size (mm). If not specified all measurements are taken in pixels.
 -small - (Optional) Use on plates with small plaques (less than 2.5 mm) 
 ``` 
-
-## Output
-The tool produces 2 output files:
+##Examples
 ```
-out_<file_name>.ext - an image with valid plaques circled with green colour, where <ext> is an extension of the original file
+python plaque_size_tool.py -i Test_plates/large/29.tif -p 90
+python plaque_size_tool.py -i Test_plates/small/7.tif -p 90 -small
 
-data-green-<file_name>.csv - a CSV file with detected plaques parameters: 
+```
+## Output
+The tool produces two output files:
+```
+1. out_<file_name> - an image with valid plaques circled with green colour, where <file_name> is the name of the original file
+
+2. data-green-<file_name>.csv - a CSV file with detected plaques parameters: 
 INDEX_COL - the ID of the plaque that corresponds to the ID on the output image
 AREA_PXL - Area of a plaque in pixels
 PERIMETER - Perimeter of a plaque in pixels
