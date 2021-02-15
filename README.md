@@ -3,7 +3,7 @@ This Python 3 Plaque Size Tool (or PST) takes Petri dish images as input and mea
 
 # Installation
 
-## Step 1. Download the archive from git hub
+## Step 1. Download the archive from GitHub
 Navigate to https://github.com/ellinium/plaque_size_tool.
 After that, click the green button 'Code' in the right corner and select the option 'download zip'.
 Unpack the archive into the directory of your choice.
