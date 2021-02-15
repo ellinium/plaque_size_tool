@@ -181,9 +181,10 @@ def write_data(out_dir, image_path, green_df, red_df, other_df):
 def write_one_data(out_dir, image_path, prefix, df):
     image_file_name = os.path.split(image_path)[1]
     image_name = os.path.splitext(image_file_name)[0]
-    df.to_csv(path_or_buf=f'{out_dir}/data-{prefix}-{image_name}.csv',
-              columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM'])
-              #columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'ENCL_CENTER', 'ENCL_DIAMETER_PXL'])
+    if df.empty != True:
+        df.to_csv(path_or_buf=f'{out_dir}/data-{prefix}-{image_name}.csv',
+                  columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM'])
+                  #columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'ENCL_CENTER', 'ENCL_DIAMETER_PXL'])
 
 
 def calc_AREA_PXL_diff(contour_df):
@@ -431,6 +432,7 @@ def main():
         # green_df_copy['ENCL_DIAMETER_MM'] = green_df_copy['ENCL_DIAMETER_MM'].apply(lambda x: f"{x:.2f}")
         write_data(out_dir_path, image_path, green_df_copy, red_df_copy, other_df)
         print("Process completed successfully")
+        print(str(len(green_df_copy)) + ' plaques were found\n')
 
 
 def renumerate_df(df):
