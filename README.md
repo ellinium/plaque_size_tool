@@ -8,7 +8,7 @@ Navigate to https://github.com/ellinium/plaque_size_tool.
 After that, click the green button 'Code' in the right corner and select the option 'download zip'.
 Unpack the archive into the directory of your choice.
 
-If you have Git another option to download the files is to use the command:
+If you have the installed git another option to download the files is to use the command:
 ```
 git clone https://github.com/ellinium/plaque_size_tool
 ```
