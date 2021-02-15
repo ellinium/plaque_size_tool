@@ -70,7 +70,7 @@ python PATH_TO_PST/plaque_size_tool.py -d <path_to_the_directory> [-p plate_size
 -p plate_size - (Optional) Petri dish size (mm). If not specified all measurements are taken in pixels.
 -small - (Optional) Use on plates with small plaques (less than 2.5 mm) 
 ``` 
-##Examples
+## Examples
 ```
 python plaque_size_tool.py -i Test_plates/large/29.tif -p 90  - runs the tool on the file 29.tif that has a plate size 90 mm.
 python plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on the directory Test_plates/small that contains plates with small plaques (<= 2.5 mm). The result will be shown in pixels as the plate size is not specified.
