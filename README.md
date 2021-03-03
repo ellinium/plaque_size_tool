@@ -3,12 +3,12 @@ This Python 3 Plaque Size Tool (or PST) takes Petri dish images as input and mea
 
 # Installation
 
-## Step 1. Download the archive from GitHub
+## Step 1. Download the archive from git hub
 Navigate to https://github.com/ellinium/plaque_size_tool.
 After that, click the green button 'Code' in the right corner and select the option 'download zip'.
 Unpack the archive into the directory of your choice.
 
-If you have the installed git another option to download the files is to use the command:
+If you have Git another option to download the files is to use the command:
 ```
 git clone https://github.com/ellinium/plaque_size_tool
 ```
@@ -70,12 +70,16 @@ python PATH_TO_PST/plaque_size_tool.py -d <path_to_the_directory> [-p plate_size
 -p plate_size - (Optional) Petri dish size (mm). If not specified all measurements are taken in pixels.
 -small - (Optional) Use on plates with small plaques (less than 2.5 mm) 
 ``` 
+##Examples
+```
+python plaque_size_tool.py -i Test_plates/large/29.tif -p 90  - runs the tool on the file 29.tif that has a plate size 90 mm.
+python plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on the directory Test_plates/small that contains plates with small plaques (<= 2.5 mm). The result will be shown in pixels as the plate size is not specified.
 
+```
 ## Output
 The tool produces two output files:
 ```
-1. out_<file_name> - an image with valid plaques circled with green colour, where <file_name> is the name of the original file.
-If <p> (plate size) parameter is specified, the results will be shown in mm. If <p> is not specified then in pixels.
+1. out_<file_name> - an image with valid plaques circled with green colour, where <file_name> is the name of the original file
 
 2. data-green-<file_name>.csv - a CSV file with detected plaques parameters: 
 INDEX_COL - the ID of the plaque that corresponds to the ID on the output image
@@ -84,14 +88,7 @@ AREA_MM2 -  Area of a plaque in millimetres squared if plate size is specified
 DIAMETER_PXL - AREA_MM2 -  Diameter of a plaque in pixels
 DIAMETER_MM - Diameter of a plaque in millimetres if plate size is specified    
 ```
-## Examples
-```
-python plaque_size_tool.py -i Test_plates/large/29.tif -p 90  - runs the tool on the file 29.tif that has a plate size 90 mm. The results on a plate will be shown in mm.
-python plaque_size_tool.py -i Test_plates/large/29.tif  - runs the tool on the file 29.tif. All results will be shown in pixels as the plate size is not specified.
 
-python plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on the directory Test_plates/small that contains plates with small plaques (<= 2.5 mm). The results on a plate will be shown in mm.
-
-```
 ## Notes
 This tool was tested on grey images in TIF format made using a Bio-Rad GelDoc system with the Exposure parameter equal to 0.750 sec.
 The tool can automatically adjust brightness and contrast of images for processing.
