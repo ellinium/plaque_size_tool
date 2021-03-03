@@ -81,7 +81,7 @@ If <p> (plate size) parameter is specified, the results will be shown in mm. If 
 INDEX_COL - the ID of the plaque that corresponds to the ID on the output image
 AREA_PXL - Area of a plaque in pixels
 AREA_MM2 -  Area of a plaque in millimetres squared if plate size is specified
-DIAMETER_PXL - AREA_MM2 -  Diameter of a plaque in pixels
+DIAMETER_PXL - Diameter of a plaque in pixels
 DIAMETER_MM - Diameter of a plaque in millimetres if plate size is specified    
 ```
 ## Examples
