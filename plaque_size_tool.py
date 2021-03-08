@@ -120,13 +120,21 @@ def draw_contours(image, green_df, red_df, other_df, plate_df):
     image_copy = image.copy()
     for index, green in green_df.iterrows():
         draw_one_contour(image_copy, green, (0, 255, 0))
-    #for index, red in red_df.iterrows():
-        #draw_one_contour(image_copy, red, (0, 0, 255))
-    #for index, other in other_df.iterrows():
-        #draw_one_contour(image_copy, other, (200, 150, 150))
-        #draw_one_contour(image_copy, other, (100, 100, 100))
-    #for index, plate in plate_df.iterrows():
-        #draw_one_contour(image_copy, plate, (0, 128, 255))
+
+    def draw_contours(image, green_df, red_df, other_df, plate_df):
+        image_copy = image.copy()
+        for index, green in green_df.iterrows():
+            draw_one_contour(image_copy, green, (0, 255, 0))
+            if debug_mode:
+                for index, red in red_df.iterrows():
+                    draw_one_contour(image_copy, red, (0, 0, 255))
+                for index, other in other_df.iterrows():
+                    # draw_one_contour(image_copy, other, (200, 150, 150))
+                    draw_one_contour(image_copy, other, (100, 100, 100))
+                for index, plate in plate_df.iterrows():
+                    draw_one_contour(image_copy, plate, (0, 128, 255))
+        return image_copy
+
     return image_copy
 
 
@@ -182,8 +190,8 @@ def write_one_data(out_dir, image_path, prefix, df):
     image_file_name = os.path.split(image_path)[1]
     image_name = os.path.splitext(image_file_name)[0]
     if df.empty != True:
-        df.to_csv(path_or_buf=f'{out_dir}/data-{prefix}-{image_name}.csv',
-                  columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM'])
+        df.to_csv(path_or_buf=f'{out_dir}/data-{prefix}-{image_name}.csv', index = False,
+                  columns=['INDEX_COL', 'AREA_PXL', 'DIAMETER_PXL', 'AREA_MM2', 'DIAMETER_MM'])
                   #columns=['INDEX_COL', 'AREA_PXL', 'PERIMETER_PXL', 'ENCL_CENTER', 'ENCL_DIAMETER_PXL'])
 
 
@@ -369,18 +377,21 @@ def main():
     for image_path in image_paths:
         print("Processing " + image_path)
 
+        # adjust too bright image
         #average image brightness
         image_brightness = get_brightness(image_path)
+        im = Image.open(image_path)
 
-        # adjust too bright image
-        if image_brightness > 90:
-            im = Image.open(image_path)
+        image = cv2.imread(image_path)
+        if image_brightness > 70:
+            #im = Image.open(image_tmp)
             enhancer = ImageEnhance.Brightness(im)
             factor = 0.5
             im_output = enhancer.enhance(factor)
-            im_output.save(image_path)
 
-        image = cv2.imread(image_path)
+            im_output.save(image_path + '.tmp' + os.path.splitext(image_path)[1])
+            image = cv2.imread(image_path + '.tmp' + os.path.splitext(image_path)[1])
+
 
         binary_image, high_contrast, clr_high_contrast = process_image(image, 2.5)
         #       cv2.imshow("Binary image", binary_image)
@@ -427,6 +438,10 @@ def main():
         if not os.path.exists(out_dir_path):
             os.makedirs(out_dir_path)
         write_images(out_dir_path, output, binary_image, high_contrast, image_path)
+
+        #Delete the temporary file
+        if os.path.exists(image_path + '.tmp' + os.path.splitext(image_path)[1]):
+            os.remove(image_path + '.tmp' + os.path.splitext(image_path)[1])
 
         # format float values
         # green_df_copy['ENCL_DIAMETER_MM'] = green_df_copy['ENCL_DIAMETER_MM'].apply(lambda x: f"{x:.2f}")

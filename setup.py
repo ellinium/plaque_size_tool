@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='plaque-size-tool',
-      version='1.0.2',
+      version='1.0.6',
       description='Bacteriophage plaque size measurement tool',
       long_description=long_description,
       long_description_content_type='text/markdown',
