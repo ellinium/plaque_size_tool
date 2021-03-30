@@ -95,7 +95,7 @@ def process_image(image, contrast):
     # laplacian = cv2.Laplacian(blur, -1, ksize=17, delta=-50)
     # laplacian = cv2.Laplacian(thresh, cv2.CV_64F)
     laplacian = cv2.Laplacian(thresh, cv2.CV_8UC1)
-    # cv2.imwrite("./test_pic_laplacian.jpg", laplacian)
+    debug_info("./test_pic_laplacian.jpg", laplacian)
     # gray_lapl = cv2.cvtColor(laplacian, cv2.COLOR_BGR2GRAY)
 
     # binary = cv2.threshold(laplacian, 165, 255, cv2.THRESH_BINARY)
@@ -120,20 +120,14 @@ def draw_contours(image, green_df, red_df, other_df, plate_df):
     image_copy = image.copy()
     for index, green in green_df.iterrows():
         draw_one_contour(image_copy, green, (0, 255, 0))
-
-    def draw_contours(image, green_df, red_df, other_df, plate_df):
-        image_copy = image.copy()
-        for index, green in green_df.iterrows():
-            draw_one_contour(image_copy, green, (0, 255, 0))
-            if debug_mode:
-                for index, red in red_df.iterrows():
-                    draw_one_contour(image_copy, red, (0, 0, 255))
-                for index, other in other_df.iterrows():
-                    # draw_one_contour(image_copy, other, (200, 150, 150))
-                    draw_one_contour(image_copy, other, (100, 100, 100))
-                for index, plate in plate_df.iterrows():
-                    draw_one_contour(image_copy, plate, (0, 128, 255))
-        return image_copy
+        if debug_mode:
+            for index, red in red_df.iterrows():
+                draw_one_contour(image_copy, red, (0, 0, 255))
+            for index, other in other_df.iterrows():
+                # draw_one_contour(image_copy, other, (200, 150, 150))
+                draw_one_contour(image_copy, other, (100, 100, 100))
+            for index, plate in plate_df.iterrows():
+                draw_one_contour(image_copy, plate, (0, 128, 255))
 
     return image_copy
 
