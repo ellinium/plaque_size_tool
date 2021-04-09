@@ -16,7 +16,7 @@ git clone https://github.com/ellinium/plaque_size_tool
 ## Step 2. Installation using pip 
 This command will install the libraries required for Plaque Size Tool into the system directories.
 ```
-pip install plaque-size-tool
+pip3 install plaque-size-tool
 ```
 
 ## Prerequisites
@@ -27,10 +27,10 @@ pip install plaque-size-tool
 
 2. PIP should be installed in the system:
 
-    pip is usually already installed if you are using Python 2 >=2.7.9 or Python 3 >=3.4 downloaded from python.org.
+    pip3 is usually already installed if you are using Python 3 >=3.4 downloaded from python.org.
     If it is not installed, please navigate to https://pip.pypa.io/en/stable/installing/ for the instructions (see the section 'Installing with get-pip.py', where it is required to download get-pip.py and install pip using the command:
 ```
-python get-pip.py
+python3 get-pip.py
 ```
 
 Note: if you have several versions of python in the system use python3 in all specified commands.
@@ -48,21 +48,21 @@ If your current directory differs, you need to include a full path to the tool.
 ### on a file
 If it's required to analyze a single file, run the following command:
 ```
-python plaque_size_tool.py -i <path_to_the_file> [-p plate_size] [-small]
+python3 plaque_size_tool.py -i <path_to_the_file> [-p plate_size] [-small]
 
 or
 
-python PATH_TO_PST/plaque_size_tool.py -i <path_to_the_file> [-p plate_size] [-small]
+python3 PATH_TO_PST/plaque_size_tool.py -i <path_to_the_file> [-p plate_size] [-small]
 
 ```
 ### on a directory
 If it's required to analyze multiple files, put all files in the directory. Then run the following command:
 ```
-python plaque_size_tool.py -d <path_to_the_directory> [-p plate_size] [-small]
+python3 plaque_size_tool.py -d <path_to_the_directory> [-p plate_size] [-small]
 
 or
 
-python PATH_TO_PST/plaque_size_tool.py -d <path_to_the_directory> [-p plate_size] [-small]
+python3 PATH_TO_PST/plaque_size_tool.py -d <path_to_the_directory> [-p plate_size] [-small]
 
 ```
 ## Additional options
@@ -86,10 +86,10 @@ DIAMETER_MM - Diameter of a plaque in millimetres if plate size is specified
 ```
 ## Examples
 ```
-python plaque_size_tool.py -i Test_plates/large/29.tif -p 90  - runs the tool on the file 29.tif that has a plate size 90 mm. The results on a plate will be shown in mm.
-python plaque_size_tool.py -i Test_plates/large/29.tif  - runs the tool on the file 29.tif. All results will be shown in pixels as the plate size is not specified.
+python3 plaque_size_tool.py -i Test_plates/large/29.tif -p 90  - runs the tool on the file 29.tif that has a plate size 90 mm. The results on a plate will be shown in mm.
+python3 plaque_size_tool.py -i Test_plates/large/29.tif  - runs the tool on the file 29.tif. All results will be shown in pixels as the plate size is not specified.
 
-python plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on the directory Test_plates/small that contains plates with small plaques (<= 2.5 mm). The results on a plate will be shown in mm.
+python3 plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on the directory Test_plates/small that contains plates with small plaques (<= 2.5 mm). The results on a plate will be shown in mm.
 
 ```
 ## Notes
