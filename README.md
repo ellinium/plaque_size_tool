@@ -93,6 +93,4 @@ python3 plaque_size_tool.py -d Test_plates/small -p 90 -small - runs the tool on
 
 ```
 ## Notes
-This tool was tested on grey images in TIF format made using a Bio-Rad GelDoc system with the Exposure parameter equal to 0.750 sec.
-The tool can automatically adjust brightness and contrast of images for processing.
-If you are experiencing any issues with your images (for example, overprocessing), please email [ellina.trofimova@hdr.mq.edu.au](mailto:ellina.trofimova@hdr.mq.edu.au).
+If you are experiencing any technical issues with your images (for example, overprocessing) or tool installation, please email to [ellina.trofimova@hdr.mq.edu.au](mailto:ellina.trofimova@hdr.mq.edu.au).

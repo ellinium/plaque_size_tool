@@ -418,6 +418,7 @@ def main():
                 axis=1)
 
             #Remove extra black contours
+            #TODO dark plaques are being filtered out (online_image.png
             filter_dev_colour = green_df_copy.apply(lambda x: abs(x['MEAN_COLOUR'] ) < 40, axis=1)
             green_df_copy = green_df_copy[~filter_dev_colour]
         else:
