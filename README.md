@@ -18,7 +18,7 @@
 
 - [Plaque Size Tool usage options](#plaque-size-tool-usage-options)
 
-- [Single file processing](#_Toc68983152)
+- [Single file processing](#single-file-processing)
 
 - [Examples](#examples)
 
@@ -160,9 +160,9 @@ Windows:
 py -m pip install --upgrade pip
 ```
 
-3.  # Plaque Size Tool installation
+# Plaque Size Tool installation
 
-    1.  ## GitHub archive download
+## GitHub archive download
 
 Navigate to <https://github.com/ellinium/plaque_size_tool>. After that,
 click the green button 'Code' in the right corner and select the option
@@ -217,9 +217,9 @@ on your screen:
 
 MacOS and Windows use the same command for installation.
 
-4.  # Plaque Size Tool usage
+# Plaque Size Tool usage
 
-    1.  ## Plaque Size Tool usage options
+## Plaque Size Tool usage options
 
 The tool can be run on a single image file (TIF, TIFF, JPG, JPEG, PNG
 image formats are supported) or on a directory containing several image
