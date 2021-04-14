@@ -1,32 +1,32 @@
 # Table of Contents
 
-[1. Introduction](#Introduction)
+[Introduction](#Introduction)
 
-[2. Prerequisites installation](#prerequisites-installation)
+[Prerequisites installation](#prerequisites-installation)
 
-[2.1 Python installation](#python-installation)
+- [Python installation](#python-installation)
 
-[2.2 Pip3 installation](#pip3-installation)
+- [Pip3 installation](#pip3-installation)
 
-[3. Plaque Size Tool installation](#plaque-size-tool-installation)
+[Plaque Size Tool installation](#plaque-size-tool-installation)
 
-[3.1 GitHub archive download](#github-archive-download)
+- [GitHub archive download](#github-archive-download)
 
-[3.2 Installation using pip](#installation-using-pip)
+- [Installation using pip](#installation-using-pip)
 
-[4. Plaque Size Tool usage](#plaque-size-tool-usage)
+[Plaque Size Tool usage](#plaque-size-tool-usage)
 
-[4.1 Plaque Size Tool usage options](#plaque-size-tool-usage-options)
+- [Plaque Size Tool usage options](#plaque-size-tool-usage-options)
 
-[4.2 Single file processing](#_Toc68983152)
+- [Single file processing](#_Toc68983152)
 
-[Examples](#examples)
+- [Examples](#examples)
 
-[4.3 Batch files processing](#batch-files-processing)
+[Batch files processing](#batch-files-processing)
 
-[Example](#example)
+- [Example](#example)
 
-[4.4 Output files](#output-files)
+[Output files](#output-files)
 
 # Introduction
 
