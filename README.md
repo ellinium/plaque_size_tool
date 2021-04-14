@@ -1,4 +1,4 @@
-# Table of Contents
+# Plaque Size Tool User Manual
 
 [Introduction](#Introduction)
 
@@ -176,7 +176,7 @@ Unpack the archive into the directory of your choice.
 &lt; OPTIONAL &gt;: If you have already installed the program git,
 another option to download the files is to use the command:
 ```
-git clone https://github.com/ellinium/plaque_size_tool directory&gt;
+git clone https://github.com/ellinium/plaque_size_tool directory
 ```
 , where directory is a directory for Plaque Size Tool
 on a local machine.
@@ -192,15 +192,10 @@ plaque size tool files, type ‘ls’ on Terminal (MacOS) or ‘dir’ on
 Command Prompt (Windows). You should see the following files listed:
 
 Test\_plates
-
 LICENSE
-
 plaque\_size\_tool.py
-
 pyproject.toml
-
 README.md
-
 setup.py
 
 Once in the directory containing plaque size tool, execute the following
@@ -243,9 +238,7 @@ you need to include a full path to the tool (see below for examples).
 than 2.5 mm or images are of low resolution and size
 
 ## 
-
-## 
-
+ 
 ## Single File processing
 
 MacOS: 
