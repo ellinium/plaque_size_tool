@@ -37,6 +37,11 @@ image.
 The source files are located at
 <https://github.com/ellinium/plaque_size_tool>.
 
+To cite Plaque Size Tool please use: 
+```
+"Trofimova E, Jaschke PR. Plaque Size Tool: An automated plaque analysis tool for simplifying and standardising bacteriophage plaque morphology measurements. Virology. 2021;561(April):1–5. doi: 10.1016/j.virol.2021.05.011 "
+```
+
 The tool can be installed on any operation system supporting Python.
 
 The installation guide is provided for two most frequently used OS –
