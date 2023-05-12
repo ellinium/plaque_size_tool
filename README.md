@@ -37,6 +37,8 @@ image.
 The source files are located at
 <https://github.com/ellinium/plaque_size_tool>.
 
+**Web Google Colab version** is available here - https://colab.research.google.com/drive/1HJe8V26l7n82zX8vJ7bO5C8-xrs_aWuq?usp=sharing
+
 To cite Plaque Size Tool, please use https://doi.org/10.1016/j.virol.2021.05.011: 
 ```
 "Trofimova E, Jaschke PR. Plaque Size Tool: An automated plaque analysis tool for simplifying and standardising bacteriophage plaque morphology measurements. Virology. 2021;561(April):1–5. doi: 10.1016/j.virol.2021.05.011"
